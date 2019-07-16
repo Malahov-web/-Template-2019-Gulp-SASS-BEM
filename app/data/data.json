@@ -1,0 +1,642 @@
+{
+    "mytitle": "uk result demo",
+    
+    "site": {
+        "title": "UK Result demo",
+        "name": "ЮК Результат",
+        "address": "г. Владивосток, ул. Океанский проспект, 135, офис 304"
+    },
+
+    "menu-class": "menu-main--mv menu-main--ds",
+    "items": [
+      {"name": "red", "first": true, "url": "#Red"},
+      {"name": "green", "link": true, "url": "#Green"},
+      {"name": "YelloW", "link": true, "url": "#YelloW"}
+    ],
+    "empty": false,
+
+    "menu-items": [
+        { 
+            "menu-items-name": "Об агентстве",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "Кейсы" },
+                { "sub-menu-item-name": "Вакансии" }
+            ]
+        },
+        {
+            "menu-items-name": "Представительство в судах",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "Досудебное урегулирование споров" },
+                { "sub-menu-item-name": "Представительство интересов в арбитражном суде (арбитраж)" },
+                { "sub-menu-item-name": "Банкротство физических лиц" },
+                { "sub-menu-item-name": "Взыскание долгов" },
+                { "sub-menu-item-name": "Жилищные споры" },
+                { "sub-menu-item-name": "Семейные споры" },
+                { "sub-menu-item-name": "Земельные споры" },
+                { "sub-menu-item-name": "Оспаривание корректировок таможенной стоимости" },
+                { "sub-menu-item-name": "Наследственное право" },
+                { "sub-menu-item-name": "Консультации и подготовка документов" }
+            ]
+        },
+
+        {
+            "menu-items-name": "Допуски СРО",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "СРО в строительстве" },
+                { "sub-menu-item-name": "СРО в проектировании" },
+                { "sub-menu-item-name": "СРО в изысканиях" }
+            ]
+        },
+        {
+            "menu-items-name": "Лицензирование",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "Лицензии МЧС" },
+                { "sub-menu-item-name": "Лицензии на гостайну ФСБ" },
+                { "sub-menu-item-name": "Медицинские лицензии" },
+                { "sub-menu-item-name": "Фармацевтические лицензии" },
+                { "sub-menu-item-name": "Лицензирование управляющих компаний" },
+                { "sub-menu-item-name": "Лицензия для автошколы" },
+                { "sub-menu-item-name": "Реставрационные лицензии Минкультуры" },
+                { "sub-menu-item-name": "Лицензии на розничную реализацию алкоголя" },
+                { "sub-menu-item-name": "Заключения СЭС, УГПН" },
+                { "sub-menu-item-name": "Лицензия на геодезию и картографию" },
+                { "sub-menu-item-name": "Сертификация услуг авторемонтных мастерских" },
+                { "sub-menu-item-name": "Туристические сертификаты" },
+                { "sub-menu-item-name": "Сертификация предприятий общественного питания" },
+                { "sub-menu-item-name": "Разрешения на торговлю (регистрационные удостоверения)" },
+                { "sub-menu-item-name": "Лицензии на трудоустройство за рубежом" },
+                { "sub-menu-item-name": "Лицензии на охранную и детективную деятельность" },
+                { "sub-menu-item-name": "Лицензии на переработку лома черных и цветных металлов" }
+            ]
+        },
+        {
+            "menu-items-name": "Регистрация и ликвидация",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "Регистрация ИП" },
+                { "sub-menu-item-name": "Регистрация ООО" },
+                { "sub-menu-item-name": "Регистрация некоммерческих организаций" },
+                { "sub-menu-item-name": "Внесение изменений" },
+                { "sub-menu-item-name": "Ликвидация ООО" }
+            ]
+        },
+        {
+            "menu-items-name": "Услуги ",
+            "menu-items-class": "menu-item-has-children",
+            "sub-menu": [
+                { "sub-menu-item-name": "Услуги бухгалтера" },
+                { "sub-menu-item-name": "Уголовный юрист" },
+                { "sub-menu-item-name": "Автоадвокат" },
+                { "sub-menu-item-name": "Операции с недвижимостю" },
+                { "sub-menu-item-name": "Наследственные споры" }
+            ]
+        }
+    ],
+
+    "top-menu": [
+        {
+            "top-menu-item-name": "Главная"
+        },
+        {
+            "top-menu-item-name": "Услуги"
+        },
+        {
+            "top-menu-item-name": "Об агентстве"
+        },
+        {
+            "top-menu-item-name": "Сервисы"
+        },
+        {
+            "top-menu-item-name": "Вакансии"
+        },
+        {
+            "top-menu-item-name": "Контакты"
+        }
+
+    ],
+
+    "services": [
+        { 
+            "item-title": "Допуски СРО", 
+            "item-image": "services-item-img-1.png"
+        },
+        { 
+            "item-title": "Лицензии МЧС" , 
+            "item-image": "services-item-img-2.png"
+        },
+        { 
+            "item-title": "Регистрация ООО", 
+            "item-image": "services-item-img-3.png" 
+        },
+        { 
+            "item-title": "Услуги бухгалтера", 
+            "item-image": "services-item-img-4.png" }
+            ,
+        { 
+            "item-title": "Услуги адвоката", 
+            "item-image": "services-item-img-5.png" 
+        },
+        { 
+            "item-title": "Налоговый адвокат", 
+            "item-image": "services-item-img-6.png" 
+        }
+    ],
+
+    "services_sro": [
+        { "item-title": "СРО в строительстве", "item-image": "agreement.svg"},
+        { "item-title": "СРО в проектировании" , "item-image": "agreement.svg"},
+        { "item-title": "СРО в изысканиях", "item-image": "agreement.svg" }
+    ],
+
+    "offers": [
+        { 
+            "item-title": "Уголовное право",
+            "item-image": "court.png",
+            "id": 1,
+            "even": false,
+            "list": [
+                {
+                    "list-item-title": "Досудебное урегулирование споров",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Представительство интересов в арбитражном суде (арбитраж)",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Суды общей юрисдикции",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Адвокат по уголовным делам",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Банкротство физических лиц",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Взыскание долгов",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Семейные споры",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Жилищные споры",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Земельные споры",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Оспаривание корректировок таможенной стоимости",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Консультации и подготовка документов",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Наследственное право",
+                    "list-item-image": "briefcase.png"
+                }               
+            ]
+        },
+
+
+        { 
+            "item-title": "Гражданское право",
+            "item-image": "book-2.png",
+            "id": 2,
+            "even": true,
+            "list": [
+                {
+                    "list-item-title": "Досудебное урегулирование споров",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Представительство интересов в арбитражном суде (арбитраж)",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Суды общей юрисдикции",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Адвокат по уголовным делам",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Банкротство физических лиц",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Взыскание долгов",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Семейные споры",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Жилищные споры",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Земельные споры",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Оспаривание корректировок таможенной стоимости",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Консультации и подготовка документов",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Наследственное право",
+                    "list-item-image": "briefcase.png"
+                }               
+            ]
+        },
+
+
+        { 
+            "item-title": "Услуги юриста",
+            "item-image": "avatar-2.png",
+            "id": 3,
+            "even": false,
+            "list": [
+                {
+                    "list-item-title": "Досудебное урегулирование споров",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Представительство интересов в арбитражном суде (арбитраж)",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Суды общей юрисдикции",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Адвокат по уголовным делам",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Банкротство физических лиц",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Взыскание долгов",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Семейные споры",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Жилищные споры",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Земельные споры",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Оспаривание корректировок таможенной стоимости",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Консультации и подготовка документов",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Наследственное право",
+                    "list-item-image": "briefcase.png"
+                }               
+            ]
+        },
+
+        { 
+            "item-title": "Бизнесу",
+            "item-image": "team.png",
+            "id": 4,
+            "even": true,
+            "list": [
+                {
+                    "list-item-title": "Досудебное урегулирование споров",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Представительство интересов в арбитражном суде (арбитраж)",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Суды общей юрисдикции",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Адвокат по уголовным делам",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Банкротство физических лиц",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Взыскание долгов",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Семейные споры",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Жилищные споры",
+                    "list-item-image": "briefcase.png"
+                },
+                {
+                    "list-item-title": "Земельные споры",
+                    "list-item-image": "agreement.png"
+                },
+                {
+                    "list-item-title": "Оспаривание корректировок таможенной стоимости",
+                    "list-item-image": "avatar.png"
+                },
+                {
+                    "list-item-title": "Консультации и подготовка документов",
+                    "list-item-image": "book.png"
+                },
+                {
+                    "list-item-title": "Наследственное право",
+                    "list-item-image": "briefcase.png"
+                }               
+            ]
+        }
+
+    ],
+
+    "news": [
+        { 
+            "item-title": "Кредитные карты — как не быть обманутым", 
+            "item-image": "news-item-img-1.jpg",
+            "item-date": "05.02.2019",
+            "item-datetime": "2019-02-05",
+            "item-text": "Создание приверженного покупателя усиливает охват аудитории, не считаясь с затратами",
+            "item-text-long": "Нередки ситуации, когда заемщик обращается в банк за получением кредитной карты и ему выдают заветный пластик всего за 5 минут. Сотрудник кредитного учреждения предлагает заполнить короткую анкету, подписать ее, делает ксерокопию паспорта и выдает карту с ПИН-конвертом, в котором указывает код для доступа к средствам. ",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "IT-компаниям могут предоставить налоговые льготы", 
+            "item-image": "news-item-img-2.jpg",
+            "item-date": "05.03.2019",
+            "item-datetime": "2019-03-05",
+            "item-text": "В Госдуме обсудили меры поддержки производителей отечественного программного обеспечения.",
+            "item-text-long": "Как сообщает пресс-служба Госдумы, в частности, производители программного обеспечения говорили о высоком налоговом бремени и просили законодателей внести изменения в действующее законодательство – снизить для специализирующихся в этой сфере компаний НДС и налог на прибыль. ",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Правительство РФ расширило перечень товаров облагаемых НДС", 
+            "item-image": "news-item-img-3.jpg",
+            "item-date": "04.02.2019",
+            "item-datetime": "2019-02-04",
+            "item-text": "Правительство РФ расширило перечень товаров, облагаемых по ставке НДС 10%",
+            "item-text-long": "Правительство РФ расширило перечень товаров, облагаемых по ставке НДС 10%",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Порядок открытия лицевых счетов для организаций и ИП", 
+            "item-image": "news-item-img-4.jpg",
+            "item-date": "05.02.2019",
+            "item-datetime": "2019-02-05",
+            "item-text": "Порядок открытия лицевых счетов для организаций и ИП",
+            "item-text-long": "Порядок открытия лицевых счетов для организаций и ИП",
+            "item-link": "#"
+        }                        
+
+    ],
+
+    "difference-we": [
+        { 
+            "item-title": "Оформление договора", 
+            "item-text": "Нам важно, чтобы наши клиенты доверяли нам, поэтому мы всегда заключаем договора и предоставляем документы о приеме денег"
+
+        },
+        { 
+            "item-title": "Фиксированная стоимость", 
+            "item-text": "Мы гарантируем, что озвученная изначально стоимость услуг останется неизменной до конца сотрудничества"
+        },
+        { 
+            "item-title": "Оперативность", 
+            "item-text": "Мы ценим Ваше время, поэтому не затягиваем сроки и начинаем работу в день обращения"
+        },
+        { 
+            "item-title": "Большой опыт", 
+            "item-text": "В нашей компании работают только высококвалифицированные специалисты с опытом работы по своей специализации не менее 5 лет. За плечами наших сотрудников тысячи составленных документов и сотни судебных заседаний"
+        },
+        { 
+            "item-title": "Выгодные условия и цены", 
+            "item-text": "Мы всегда готовы предложить Вам самые выгодные условия, например, предоставить услуги в рассрочку"
+        }                   
+
+    ],
+
+    "difference-competitor": [
+        { 
+            "item-title": "Работа без договора", 
+            "item-text": "Многие частные юристы не дают клиентам никаких гарантий, отказываясь заключать договор о сотрудничестве"
+
+        },
+        { 
+            "item-title": "Дополнительные затраты", 
+            "item-text": "Различные дополнительные расходы могут привести к тому, что озвученная изначально стоимость услуг в итоге увеличивается в несколько раз"
+
+        },
+        { 
+            "item-title": "Затягивание сроков", 
+            "item-text": "Недобросовестные компании затягивают сроки решения проблем, заставляя своих клиентов нервничать"
+
+        },
+        { 
+            "item-title": "Отсутстсвие квалифицированных специалистов", 
+            "item-text": "Сейчас много различных юридических учебных заведений с сомнительной репутацией, выпускники которых активно продают свои услуги, не имея ни знаний, ни опыта работы"
+
+        },
+        { 
+            "item-title": "Высокая цена", 
+            "item-text": "Зачастую стоимость юридических услуг гораздо выше, чем их качество. В результате клиент теряет деньги, а его проблемы по-прежнему остаются с ним"
+
+        }
+
+    ], 
+
+    "reviews": [
+        { 
+            "item-title": "Отзыв от MyCompany", 
+            "item-image": "reviews-item-img-1.jpg",
+            "item-image-large": "reviews-item-img-1-large.jpg",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Благодарность от YourCompany", 
+            "item-image": "reviews-item-img-2.jpg",
+            "item-image-large": "reviews-item-img-2-large.jpg",            
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Благодарственное письмо от No1Company", 
+            "item-image": "reviews-item-img-3.jpg",
+            "item-image-large": "reviews-item-img-3-large.jpg",            
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Отзыв от TransNeftGazAlmaz", 
+            "item-image": "reviews-item-img-4.jpg",
+            "item-image-large": "reviews-item-img-4-large.jpg",            
+            "item-link": "#"
+        }                        
+
+    ],
+
+    "sertificates": [
+        { 
+            "item-title": "Отзыв от MyCompany", 
+            "item-text": "С нашей помощью Вы можете напрямую вступить в СРО без посредников, так как мы официальные, аккредитованные представители самых надежных СРО в России", 
+            "item-image": "reviews-item-img-1.jpg",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Отзыв от TransNeftGazAlmaz", 
+            "item-text": "Вы можете напрямую вступить в СРО без посредников, так как мы официальные, аккредитованные представители самых надежных СРО в России", 
+            "item-image": "reviews-item-img-2.jpg",
+            "item-link": "#"
+        }                        
+
+    ],    
+
+    "subcategories": [
+        { 
+            "item-title": "Досудебное урегулирование споров", 
+            "item-image": "007-team.svg",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Представительство интересов в арбитражном суде (арбитраж)", 
+            "item-image": "008-court.svg",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Суды общей юрисдикции", 
+            "item-image": "009-court-1.svg",
+            "item-link": "#"
+        },
+        { 
+            "item-title": "Адвокат по уголовным делам", 
+            "item-image": "010-avatar.svg",
+            "item-link": "#"
+        },
+
+
+
+        { 
+            "item-title": "Банкротство физических лиц", 
+            "item-image": "011-money-1.svg",
+            "item-link": "#"
+        },
+        { 
+            "item-title": "Взыскание долгов", 
+            "item-image": "012-loan.svg",
+            "item-link": "#"
+        },
+        { 
+            "item-title": "Семейные споры", 
+            "item-image": "013-couple.svg",
+            "item-link": "#"
+        },
+        { 
+            "item-title": "Жилищные споры", 
+            "item-image": "014-house.svg",
+            "item-link": "#"
+        },
+
+        { 
+            "item-title": "Земельные споры", 
+            "item-image": "015-sink.svg",
+            "item-link": "#"
+        },
+        { 
+            "item-title": "Оспаривание корректировок таможенной стоимости", 
+            "item-image": "016-parcel.svg",
+            "item-link": "#"
+        },
+        { 
+            "item-title": "Консультации и подготовка документов", 
+            "item-image": "017-document.svg",
+            "item-link": "#"
+        },
+        { 
+            "item-title": "Наследственное право", 
+            "item-image": "018-teamwork.svg",
+            "item-link": "#"
+        }
+
+    ],
+
+
+    "tarifs": [
+        { 
+            "item-title": "Начальный", 
+            "item-image": "tarifs-item-img-1.svg",
+            "item-text": "Я открыл ИП, но на данном этапе не веду деятельность. Но мне все равно необходимо подавать декларацию в Налоговую инспекцию и фонды.",
+            "item-price": "3 000 руб./квартал"
+        },
+        { 
+            "item-title": "Простой суперначалный", 
+            "item-image": "tarifs-item-img-1.svg",
+            "item-text": "Я индивидуальный предприниматель, веду небольшую деятельность, у меня некоторое количество первичной документации и штат до 2-х человек. Мне необходима помощь и поддержка в обработке первичной документации и сдаче налоговой и бухгалтерской отчетности.",
+            "item-price": "1 500 руб./месяц"
+        },
+        { 
+            "item-title": "Малая \n организация", 
+            "item-image": "tarifs-item-img-1.svg",
+            "item-text": "Мы – начинающая компания со штатом до 3-х человек и некоторым количеством первичной документации. Нам необходим бухгалтер, который может и будет вести наш кадровый, бухгалтерский и налоговый учет",
+            "item-price": "5 000 руб./месяц"
+        },
+        { 
+            "item-title": "Средняя \n организация", 
+            "item-image": "tarifs-item-img-1.svg",
+            "item-text": "Мы – средняя компания со штатом до 7-ми человек и с растущим объемом первичной документации. Нам нужна команда профессионалов, которая будет вести наш кадровый, бухгалтерский и налоговый учет.",
+            "item-price": "20 000 руб./месяц"
+        }                      
+
+    ],
+
+    
+
+    "section": [
+        { "item": "value"},
+        { "item": "value"},
+        { "item": "value"}
+    ]
+
+}
+
+

@@ -1,188 +1,339 @@
 // 1. Requires 
 
 
-var gulp = require('gulp'),
+const gulp = require('gulp');
 
-    uglify = require('gulp-uglify'),  // Подключаем Uglify
+const   uglify = require('gulp-uglify');  // Подключаем Uglify
 
-    sass = require('gulp-sass'),  // Подключаем Sass пакет  
+const   sass = require('gulp-sass');  // Подключаем Sass пакет  
     
-    browserSync = require('browser-sync',;  // Подключаем Browser Sync
+// const   browserSync = require('browser-sync');  // Подключаем Browser Sync
     
-    concat = require('gulp-concat'), // Подключаем  Gulp Concat
+const   concat = require('gulp-concat'); // Подключаем  Gulp Concat
     
-    sourcemaps = require('gulp-sourcemaps'),  // Подключаем Gulp Sourcemaps  ( создает карту, чтобы в инспекторе браузера показывать строку стиля в sass-файле   )
+const   sourcemaps = require('gulp-sourcemaps');  // Подключаем Gulp Sourcemaps  ( создает карту, чтобы в инспекторе браузера показывать строку стиля в sass-файле   )
     
-    glob = require('glob'),
+const   glob = require('glob');
+
+const   plumber = require('gulp-plumber');  // Преодхраняет остановку задачи из-за ошибки
     
-    //gulpicon = require('gulpicon/tasks/gulpicon');
-    
-    //svgSprite = require("gulp-svg-sprites");
+const   autoprefixer = require('gulp-autoprefixer');
+
+const iconfont = require('gulp-iconfont');
+
+const runTimestamp = Math.round(Date.now()/1000); 
+
+const async = require('async');
+
+const consolidate = require('gulp-consolidate');
+
+const svgmin = require('gulp-svgmin');
+
+const rename = require('gulp-rename');
+
+const del = require('del'); // Подключаем библиотеку для удаления файлов и папок
+
+const cleanCSS = require('gulp-clean-css');
+
+const imagemin = require('gulp-imagemin');
+
+// 16.07
+const bs = require('browser-sync').create();  // Подключаем Browser Sync
+
+const notify = require("gulp-notify");  // Выводит сообщения
+
+const debug = require("gulp-debug");
+
+const gulpif = require('gulp-if');
+
+const compile_handlebars = require('gulp-compile-handlebars');
+
+const infoData = require('./app/data/data.json');
+
+const handlebarsHelpers = require('./app/templates_hbs/helpers.js');
 
     
-    //minifyCSS = require('gulp-csso');  // CSS минификатор
-    
-    //htmlValidator = require gulp-htmlhint HTML валидатор
-    //htmlHint = require('gulp-htmlhint');  // HTML валидатор
-    
-    //csslint = require('gulp-csslint');  //  CSS линтер
-    
-    plumber = require('gulp-plumber'),  // Преодхраняет остановку задачи из-за ошибки
-    
-    autoprefixer = require('gulp-autoprefixer'),
-    
-    csslint = require('gulp-csslint'),
 
-    // fontgen = require('gulp-fontgen');  // Конвертирует шрифты из otf, ttf   
-
-    iconfont = require('gulp-iconfont'),  // Собирает шрифты из SVG-иконок
-    runTimestamp = Math.round(Date.now()/1000); 
-    
 
 // 2. Config 
 
+// paths
+const path = 'app/';
+const path_libs = path + 'libs/';
 
-var autoprefixerOptions = {
-  browsers: ['last 15 versions', 'IE 10', 'IE 11']
+// settings
+const autoprefixerOptions = {
+  browsers: ['last 10 versions', 'IE 10', 'IE 11']
 };   
-     
-    
+// assets
+const fontName = 'ukresultflaticons';
+
+const js_jquery = path_libs + '/jquery/dist/jquery.min.js';
+const js_owl = path_libs + '/owl.carousel/dist/owl.carousel.min.js';
+const js_fancybox = path_libs + '/fancybox/dist/jquery.fancybox.min.js';
+const js_selectric = path_libs + '/jquery-selectric/public/jquery.selectric.min.js';   
+const js_maskedinput = path_libs + '/jquery.maskedinput/dist/jquery.maskedinput.min.js';   
+
+
 
 // 3. Tasks  
- 
-
-    // SASS - компиляция
-    gulp.task('css', function(){ // Создаем таск "sass"
-        
-        //return gulp.src('app/sass/*.sass') // Берем все sass файлы из папки sass 
-        return gulp.src('app/css/*.css') // Берем все sass файлы из папки sass      
-
-
-            .pipe(autoprefixer())
-
-            //.pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
-            //.pipe(gulp.dest('app/css')) // Выгружаем результата в папку app/css
-    });
-
-
-    // SCSS - компиляция
-    gulp.task('scss', function(){ // Создаем таск "scss"        
-        return gulp.src('app/sass/*.scss') // Берем все scss файлы из папки sass 
-
-        .pipe(sourcemaps.init())
-        .pipe(plumber())
-        .pipe(sass()) // Преобразуем scss в CSS посредством gulp-sass
-        .pipe(autoprefixer())
-        // .pipe(autoprefixer(autoprefixerOptions))
-        .pipe(sourcemaps.write())
-        
-        .pipe(gulp.dest('app/css')) // Выгружаем результата в папку app/css
-        .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении            
-    }); 
-
-    
-
-
-    // Browser-sync - автообновление старниц
-    gulp.task('browser-sync', function() { // Создаем таск browser-sync
-        browserSync({ // Выполняем browser Sync
-            server: { // Определяем параметры сервера
-                baseDir: 'app' // Директория для сервера - app
-            },
-            notify: false // Отключаем уведомления
-        });
-    });
-    
-    
-    
-
-    // Процесс разработки проекта
-    gulp.task('watch', ['browser-sync', 'scss'], function() {
-        
-        //gulp.watch('app/sass/*.sass', ['build']);
-        //gulp.watch('app/sass/*.sass', ['sass']);
-        
-        
-        //gulp.watch('app/sass/*.+(sass|scss)', ['sass', 'scss']);  // 24.07
-        gulp
-            .watch('app/sass/*.+(scss|scss)', [ 'scss']); // Наблюдение за sass файлами в папке app/sass
-        //gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
-        
-    });
-    
-    
-
-
-    // Генерация шрифтов
-/*    
-    gulp.task('fontgen', function() {
-        return gulp.src("./src/*.{ttf,otf}")
-            .pipe(fontgen({
-                dest: "./dest/"
-            }));
-    });
-     
-    gulp.task('default', ['fontgen']);*/
-
-
-    // Сборка иконочных шрифтов из SVG
-    gulp.task('Iconfont', function(){
-        return gulp.src(['app/images/svg/*.svg'])
-            .pipe(iconfont({
-                fontName: 'myfont', // required
-                prependUnicode: true, // recommended option
-                formats: ['ttf', 'woff', 'woff2', 'svg'], // default, 'woff2' and 'svg' are available
-                timestamp: runTimestamp, // recommended to get consistent builds when watching files
-            }))
-            .on('glyphs', function(glyphs, options) {
-                // CSS templating, e.g.
-                console.log(glyphs, options);
-            })
-            .pipe(gulp.dest('app/fonts'));
-    });
-
-
-
-
-    
-/*  
-    gulp.task('concatcss', function() {
-        return gulp.src([ // Берем все необходимые библиотеки
-            //'app/libs/jquery/dist/jquery.min.js', // Берем jQuery
-            //'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js' // Берем Magnific Popup
-            
-            'app/css/reset.css',
-            'app/css/grid_24_r6.css',
-            // 'app/css/fonts.css',
-            // 'app/css/ui.css'
-            ])
-            .pipe(concat('default.min.css')) // Собираем их в кучу в новом файле libs.min.js
-            .pipe(gulp.dest('app/css')); // Выгружаем в папку app/js
-    });
+/*
+ * 3.1 scss  // SCSS - компиляция
+ * 3.2 bs-serve  // Static Server + watching scss/html files
+ * 3.3 Svgmin  // Svgmin - оптимизация svg
+ * 3.4 Iconfont  // генерация шрифта
+ * 3.5 svgSprite  // 
+ * 3.6 js  // JS - сборка
+ * 3.7 clean  // Clean - очистка директории для build
+ * 3.8 clean  // JS - сборка
 */
 
-/*
-    gulp.task('common-js', function(){      
-        return gulp.src([
-                'app/js/common.js'
-            ])
-        .pipe(concat('common.min.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('app/js/'));
+    // // SCSS - компиляция
+    // gulp.task('scss', function(){ // Создаем таск "scss"        
+    //     return gulp.src('app/sass/**/*.scss')
 
+    //     .pipe(sourcemaps.init())
+    //     .pipe(plumber())
+    //     // .pipe(postcss(processors, {syntax: syntax_scss}))
+    //     .pipe(sass()) // Преобразуем scss в CSS посредством gulp-sass
+    //     // .pipe(sass().on('error', sass.logError))
+    //     .pipe(autoprefixer())
+    //     .pipe(sourcemaps.write())
+        
+    //     .pipe(gulp.dest('app/css')) 
+    //     .pipe(browserSync.reload({stream: true}))
+    // }); 
+
+    // SCSS - компиляция  // UKResult demo // v. new
+    gulp.task('scss', function(){ // Создаем таск "scss"        
+        return gulp.src('app/sass/**/*.scss')
+
+        // .pipe(debug({title: 'SRC'}))
+        .pipe(sourcemaps.init())
+        .pipe(plumber( {  
+            errorHandler: notify.onError()
+        } ))
+        // .pipe(postcss(processors, {syntax: syntax_scss}))  // Lint
+        // .pipe(
+        //     gulpif(
+        //         function (file) {
+        //             return (file.relative === 'style.scss')                   
+        //         },
+        //         postcss(processors, {syntax: syntax_scss})
+        //     )  
+        // )
+        .pipe(sass()) // Преобразуем scss в CSS посредством gulp-sass
+        .pipe(debug({title: 'SASS'}))
+        .pipe(autoprefixer())
+        .pipe(debug({title: 'AUTOPREFIXER'}))
+        .pipe(sourcemaps.write())      // .pipe(sourcemaps.write('.')) // ('.') - Выводит в отдельный файл
+        
+        .pipe(gulp.dest('app/css')) 
+        .pipe(debug({title: 'DEST'}))
+        .pipe(bs.stream());
+    }); 
+
+
+    // Static Server + autoreloading  // v. new
+    gulp.task('bs-serve', function() {
+
+        bs.init({
+            server: "./app"
+        });
+
+        // gulp.watch("app/scss/*.scss", ['sass']);
+        // gulp.watch("app/*.html").on('change', browserSync.reload);
+    });    
+    
+    
+    // Svgmin - оптимизация svg
+    gulp.task('Svgmin', function () {
+        return gulp.src('app/images/svg-icons/*')
+            .pipe(svgmin({
+                plugins: [
+                    { removeDimensions: true },
+                    { cleanupListOfValues: true },
+                    { cleanupNumericValues: true }
+                ]
+            }))
+            .pipe(rename(function (path) {
+                path.basename = path.basename.replace(/\ /g, "")
+            }))
+            .pipe(gulp.dest('app/images/svg-min'));
     });
 
-    gulp.task('js', ['common-js'], function() {
-        return gulp.src([
-                'app/libs/jquery/dist/jquery.min.js',
-                // плагины
-                'app/libs/jQuery.mmenu/dist/jquery.mmenu.all.js',
-                'app/js/common.js', // Всегда в конце               
-            ])
-        .pipe(concat('scripts_2.min.js')
-        .pipe(gulp.dest('app/js'))
-        //.pipe(browserSync.reload({stream: true}));
-    });
-*/      
 
+    // Iconfont - генерация шрифта
+    gulp.task('Iconfont', function (done) {
+        const iconStream = gulp.src(['app/images/svg-min/*.svg'])
+            .pipe(iconfont({
+                fontName: fontName,
+                formats: ['ttf', 'eot', 'woff', 'svg', 'woff2'],
+                fixedWidth: true,
+                centerHorizontally: true,
+            }));
+        async.parallel([
+            function handleGlyphs(cb) {
+                iconStream.on('glyphs', function (glyphs, options) {
+                    // gulp.src('app/images/svgfontstyle/css.css')
+                    gulp.src('app/images/svgfontstyle/svgfontstyle.scss')
+                        .pipe(consolidate('lodash', {
+                            glyphs: glyphs,
+                            fontName: fontName,
+                            fontPath: '../fonts/',
+                            className: fontName,
+
+                        }))
+                        // .pipe(gulp.dest('app/css/'))
+                        .pipe(gulp.dest('app/sass/'))
+                        .on('finish', cb);
+                });
+            },
+            function handleFonts(cb) {
+                iconStream
+                    .pipe(gulp.dest('app/fonts/'+fontName+'/'))
+                    .on('finish', cb);
+            }
+        ], done);
+    }); 
+
+
+    // // JS - сборка
+    // gulp.task('js', function() {
+    //   return  gulp.src(
+    //     [
+    //         js_owl,
+    //         js_selectric,
+    //         'app/js/*.js'
+
+    //         //, 'app/js/menu-responsive/js/menu-responsive.js'
+    //     ]
+    //     )
+    //     .pipe(concat('scripts.js'))
+    //     .pipe(uglify())
+    //     .pipe(rename('scripts.min.js'))
+    //     .pipe(gulp.dest('app/js/min/'));
+    // });
+    // JS - сборка
+    gulp.task('js', function() {
+      return  gulp.src(
+        [
+            js_jquery,
+            js_owl,
+            js_fancybox,
+            js_selectric,
+            js_maskedinput,
+            'app/js/*.js'
+        ]
+        )
+        .pipe(concat('scripts.js'))
+        // .pipe(uglify())
+        .pipe(rename('scripts.min.js'))
+        .pipe(gulp.dest('app/js/min/'));
+    });     
+
+
+    // Lint - stylelint
+    const stylelint = require('stylelint');
+    const postcss = require('gulp-postcss');
+    const messages = require('postcss-browser-reporter');
+    const syntax_scss = require('postcss-scss');
+
+    const processors = [
+        stylelint({
+            reporters: [
+                {formatter: 'string', console: true}
+            ]
+            // ,fix: true
+        }),
+        messages({
+            selector: 'body:before'
+        })
+    ];
+
+    gulp.task('clean', function() {
+        return del.sync('dist'); // Удаляем папку dist перед сборкой
+    });
+
+
+    // Mustache/Handlebars - компиляция в HTML 
+    // gulp-compile-handlebars
+    gulp.task('html', function() {
+
+        const templateData = infoData,
+        options = {
+            ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
+            // helpers : handlebarsHelpers,
+            // helpers : require('./app/templates_hbs/helpers.js'),
+            batch : ['./app/templates_hbs/partials'],
+        }
+
+        return gulp.src('app/templates_hbs/**/*.hbs')
+
+            .on('data', function(file){  // Файл - файл который проходит обработку процессом
+
+                console.log('Проходит файл ' +  file.path);
+            })
+            // .pipe(compile_handlebars(require ('app/data/data.json'), options))
+            .pipe(compile_handlebars(templateData, options))
+
+            .pipe(rename(function (path) {
+                path.extname = '.html';
+            }))        
+            .pipe(gulp.dest('app/'));
+          
+    });
+
+
+
+
+// 4. Calls
+
+// gulp.task('watch', ['browser-sync', 'scss'], function() {
+gulp.task('watch', ['bs-serve', 'scss'], function() {
+
+    // gulp.watch('app/sass/**/*.+(scss|scss)', [ 'scss']);
+
+    // gulp.watch('app/sass/**/*.+(scss|scss)', [ 'scss', 'html']);  // будут выполнятся обе задачи []
+    gulp.watch('app/sass/**/*.+(scss|scss)', [ 'scss']);     
+    gulp.watch('app/templates_hbs/**/*.hbs', [ 'html']);    
+});
+
+// gulp.task('watchjs', ['browser-sync', 'js'], function() {
+gulp.task('watchjs', ['bs-serve', 'js'], function() {
+
+    gulp.watch('app/js/*.js', ['js']);
+    gulp.watch('app/templates_hbs/**/*.hbs', [ 'html']); 
+}); 
+
+
+gulp.task('makesvgfont', ['Svgmin', 'Iconfont']);
+
+gulp.task('build', ['clean'],  function () {
+
+    gulp.src('app/*.html')
+        .pipe(gulp.dest('dist'))        
+
+    gulp.src('app/css/**/*.css')
+        .pipe(cleanCSS({compatibility: 'ie10'}))
+        .pipe(gulp.dest('dist/css'))
+
+    gulp.src('app/js/min/scripts.min.js')
+        .pipe(uglify())    
+        .pipe(gulp.dest('dist/js/min'))
+
+    gulp.src('app/fonts/**/*')
+        .pipe(gulp.dest('dist/fonts'))
+
+    gulp.src('app/images/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/images'))
+
+    gulp.src('app/uploads/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/uploads'))    
+    
+});
+
+gulp.task('default', ['watch']);
 
