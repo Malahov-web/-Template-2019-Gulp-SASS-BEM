@@ -316,6 +316,7 @@ gulp.task('build', ['clean'],  function () {
 
     gulp.src('app/css/**/*.css')
         .pipe(cleanCSS({compatibility: 'ie10'}))
+        // .pipe(rename({suffix: '.min'}))  // TODO: Не забыть изменить путь подключаемого файла в html
         .pipe(gulp.dest('dist/css'))
 
     gulp.src('app/js/min/scripts.min.js')
